@@ -28,33 +28,32 @@ It is not the full private UGC Ninja system. The source playbook, internal opera
 
 ### Clone
 
-`bash
+```bash
 git clone https://github.com/hmzainjamil/ugc-ninja-agent-starter.git
 cd ugc-ninja-agent-starter
-`
+```
 
 ### Validate
 
-Requires Python 3.10 or newer. No third-party Python packages are required.
+From the cloned directory, run the validator. Python 3.10 or newer is required. No third-party Python packages are needed.
 
-`bash
+```bash
 python3 scripts/validate_showcase.py
-`
+```
 
 Expected result:
 
-`text
-skills=3 json_files=1
+```text
 PASS: public showcase structure, skill metadata, JSON, links and release-safety checks
-`
+```
 
 ### Try the workflow
 
-1. Read [governed-agent basics](docs/GOVERNED_AGENT_BASICS.md).
-2. Copy the [creator brief template](templates/creator-brief.md) and use synthetic or approved product facts.
-3. Walk through the [product-to-content workflow](workflows/product-to-content.json).
-4. Review the resulting asset with the [asset review checklist](templates/asset-review-checklist.md).
-5. Use the three skill files as task instructions in a compatible agent host.
+1. Read [`docs/GOVERNED_AGENT_BASICS.md`](docs/GOVERNED_AGENT_BASICS.md).
+2. Copy [`templates/creator-brief.md`](templates/creator-brief.md) and use synthetic or approved product facts.
+3. Walk through [`workflows/product-to-content.json`](workflows/product-to-content.json).
+4. Review the resulting asset with [`templates/asset-review-checklist.md`](templates/asset-review-checklist.md).
+5. Use `ugc-ninja-orchestrator`, `content-strategy` and `creator-brief-review` as task instructions in a compatible agent host.
 
 The skill files are portable Markdown. Installation paths and tool permissions differ between agent hosts. This starter does not install a host or grant any external permissions.
 
@@ -62,12 +61,12 @@ The skill files are portable Markdown. Installation paths and tool permissions d
 
 | Component | What it does | Start here |
 |---|---|---|
-| UGC Ninja Orchestrator | Turns a multi-step request into a scoped plan, owner map and approval gates | [Skill](skills/ugc-ninja-orchestrator/SKILL.md) |
-| Content Strategy | Converts approved facts and audience evidence into pillars, formats and testable concepts | [Skill](skills/content-strategy/SKILL.md) |
-| Creator Brief Review | Checks truth, deliverables, disclosures, rights and acceptance criteria | [Skill](skills/creator-brief-review/SKILL.md) |
-| Product-to-content workflow | Demonstrates the path from objective and evidence to a reviewed creator brief | [Workflow JSON](workflows/product-to-content.json) |
-| Creator brief template | Gives teams a consistent briefing record | [Template](templates/creator-brief.md) |
-| Asset review checklist | Captures pre-publication checks and the exact asset approval | [Checklist](templates/asset-review-checklist.md) |
+| UGC Ninja Orchestrator | Turns a multi-step request into a scoped plan, owner map and approval gates | [`SKILL.md`](skills/ugc-ninja-orchestrator/SKILL.md) |
+| Content Strategy | Converts approved facts and audience evidence into pillars, formats and testable concepts | [`SKILL.md`](skills/content-strategy/SKILL.md) |
+| Creator Brief Review | Checks truth, deliverables, disclosures, rights and acceptance criteria | [`SKILL.md`](skills/creator-brief-review/SKILL.md) |
+| Product-to-content workflow | Demonstrates the path from objective and evidence to a reviewed creator brief | [`workflow JSON`](workflows/product-to-content.json) |
+| Creator brief template | Gives teams a consistent briefing record | [`template` ](templates/creator-brief.md) |
+| Asset review checklist | Captures pre-publication checks and the exact asset approval | [checklist](templates/asset-review-checklist.md) |
 
 ## Human approval is built in
 
@@ -81,7 +80,7 @@ Treat these as separate checks:
 4. Has the authorised person approved the exact action and final version?
 5. Can the result be verified and, where possible, reversed?
 
-Any unresolved product claim, rights scope, disclosure, eligibility, privacy basis or approval owner blocks release.
+Unwresolved product claims, rights scope, disclosure, eligibility, privacy basis or approval owner block release.
 
 ## Who this is for
 
@@ -107,4 +106,4 @@ See [release notes](RELEASE_NOTES.md), [public release checklist](docs/PUBLIC_RE
 
 ## License and brand
 
-The source files in this starter are released under the MIT License. The UGC Ninja name and visual marks remain brand identifiers. The licence does not grant permission to imply endorsement or official affiliation. See [LICENSE](LICENSE).
+The source files in this starter are released under the MIT License. The UGC Ninja name and visual marks remain brand identifiers. The licence does not grant permission to imply endorsement or official affiliation. See [LICENSE](LICENSE.d).
