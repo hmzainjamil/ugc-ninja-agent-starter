@@ -1,0 +1,106 @@
+{
+  "workflow_id": "public-product-to-content-example",
+  "version": "1.0.0",
+  "name": "Product evidence to creator brief",
+  "purpose": "Demonstrate a simple, auditable route from product facts to a creator brief.",
+  "execution_mode": "manual_or_agent_assisted",
+  "external_actions": "not_authorized",
+  "steps": [
+    {
+      "id": "01",
+      "name": "Confirm objective",
+      "owner": "campaign_owner",
+      "inputs": [
+        "business_objective",
+        "market",
+        "audience"
+      ],
+      "outputs": [
+        "task_brief"
+      ],
+      "gate": "objective_and_owner_known"
+    },
+    {
+      "id": "02",
+      "name": "Verify product facts",
+      "owner": "product_owner",
+      "inputs": [
+        "official_product_sources",
+        "product_version"
+      ],
+      "outputs": [
+        "fact_sheet",
+        "unknowns"
+      ],
+      "gate": "facts_reviewed"
+    },
+    {
+      "id": "03",
+      "name": "Map audience insight",
+      "owner": "research_lead",
+      "inputs": [
+        "approved_audience_evidence"
+      ],
+      "outputs": [
+        "audience_matrix",
+        "message_hypotheses"
+      ],
+      "gate": "source_permissions_confirmed"
+    },
+    {
+      "id": "04",
+      "name": "Build content strategy",
+      "owner": "creative_lead",
+      "inputs": [
+        "fact_sheet",
+        "audience_matrix"
+      ],
+      "outputs": [
+        "pillar_map",
+        "concept_brief"
+      ],
+      "gate": "claims_traceable"
+    },
+    {
+      "id": "05",
+      "name": "Prepare creator brief",
+      "owner": "creator_operations",
+      "inputs": [
+        "concept_brief",
+        "rights_requirements",
+        "deliverable_specs"
+      ],
+      "outputs": [
+        "creator_brief_draft"
+      ],
+      "gate": "rights_and_disclosure_fields_present"
+    },
+    {
+      "id": "06",
+      "name": "Human review",
+      "owner": "authorised_approver",
+      "inputs": [
+        "creator_brief_draft",
+        "evidence_register"
+      ],
+      "outputs": [
+        "approval_record_or_revisions"
+      ],
+      "gate": "human_decision_required"
+    }
+  ],
+  "stop_conditions": [
+    "missing product evidence",
+    "unclear market or category eligibility",
+    "unapproved claims",
+    "unclear creator rights",
+    "missing owner or approver"
+  ],
+  "definition_of_done": [
+    "brief has stable campaign and version IDs",
+    "product facts link to sources",
+    "claims are reviewed or clearly marked pending",
+    "rights and disclosure scope are explicit",
+    "approver and next owner are recorded"
+  ]
+}
