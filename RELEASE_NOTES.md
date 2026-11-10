@@ -1,26 +1,24 @@
-# UGC Ninja Agent Starter v1.0.0
+# UGC Ninja Agent Starter v1.0.1
 
 **Release date:** 2026-11-10  
-**Release type:** first public showcase release
+**Release type:** patch release
 
-## What is included
+## Changes
 
-- Three portable Agent Skills for orchestration, content strategy and creator brief review.
-- One product-evidence-to-creator-brief workflow example.
+- Corrected the tagged release workflow so archive filenames use the tag version.
+- Confirmed the public showcase validator passes on GitHub Actions.
+- Retained the three portable skills, workflow example, creator brief and asset review checklist.
+- Retained human approval boundaries, brand assets, community issue templates and release-safety guidance.
+
+## Included in the release
+
+- Three Agent Skills for orchestration, content strategy and creator brief review.
+- One product-evidence-to-creator-brief workflow.
 - Creator brief and asset review templates.
-- Human approval and evidence basics.
-- A dependency-free Python validator and GitHub Actions validation workflow.
-- Contributor guidance, public release safeguards and a scoped MIT licence.
-- Editable SVG logo and social-preview artwork.
+- Governance, brand, security, support and contribution documentation.
+- Dependency-free Python validation.
+- GitHub Actions validation and release automation.
 
-## Intended use
+## Limitations
 
-Clone the starter, inspect the skills and workflow, replace synthetic placeholders with facts and evidence you are authorised to use, then adapt the process to your own agent host and operating environment.
-
-## Not included
-
-The private source playbook, extracted source text, internal campaign records, production connectors, active automations, customer or creator personal data and full UGC Ninja operating framework are not part of this public starter.
-
-## Known limitations
-
-The package is structurally validated. No live agent host, real creator campaign, external platform integration, legal interpretation or production deployment is certified by this release. The workflow is a reference sequence, not an executable integration.
+This is a public starter, not the full private UGC Ninja operating system. It is not a hosted product, production connector or guarantee of reach, conversions, revenue or compliance. No live creator campaign or external platform integration is certified by this release.

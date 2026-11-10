@@ -14,35 +14,31 @@ jobs:
     steps:
       - name: Check out tagged source
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
       - name: Validate showcase
         run: python scripts/validate_showcase.py
-
       - name: Build release archives
         shell: bash
         run: |
           set -euo pipefail
-          VERSION="\u0024{GITHUB_REF_NAME#v}"
+          VERSION="${GITHUB_REF_NAME#v}"
           mkdir -p dist
-          zip -qr "dist/UGC_Ninja_Agent_Starter_\u0024{VERSION}.zip" . -x '.git/*' 'dist/*'
-          tar -czf "dist/UGC_Ninja_Agent_Starter_\u0024{VERSION}.tar.gz" --exclude='.git' --exclude='./dist' .
+          zip -qr "dist/UGC_Ninja_Agent_Starter_${VERSION}.zip" . -x '.git/*' 'dist/*'
+          tar -czf "dist/UGC_Ninja_Agent_Starter_${VERSION}.tar.gz" --exclude='.git' --exclude='./dist' .
           cd dist
           sha256sum ./*.zip ./*.tar.gz > SHA256SUMS
-
       - name: Publish GitHub Release
         env:
-          GH_TOKEN: \u0024{{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          VERSION="\u0024{GITHUB_REF_NAME#v}"
-          gh release create "\u0024GITHUB_REF_NAME" \
-            "dist/UGC_Ninja_Agent_Starter_\u0024{VERSION}.zip" \
-            "dist/UGC_Ninja_Agent_Starter_\u0024{VERSION}.tar.gz" \
+          VERSION="${GITHUB_REF_NAME#v}"
+          gh release create "$GITHUB_REF_NAME" \
+            "dist/UGC_Ninja_Agent_Starter_${VERSION}.zip" \
+            "dist/UGC_Ninja_Agent_Starter_${VERSION}.tar.gz" \
             "dist/SHA256SUMS" \
             --verify-tag \
-            --title "UGC Ninja Agent Starter \u0024{VERSION}" \
+            --title "UGC Ninja Agent Starter ${VERSION}" \
             --notes-file RELEASE_NOTES.md
