@@ -19,7 +19,7 @@ def check(condition: bool, message: str) -> None:
 
 def check_markdown_links(path: Path) -> None:
     text = path.read_text(encoding="utf-8")
-    pattern = re.compile(r"!?\\[([^\\]]*)\\]\\(([^)]+)\\)")
+    pattern = re.compile(r"!?\[([^\]]*)\]\(([^)]+)\)")
     for _, target in pattern.findall(text):
         target = target.strip().split()[0].strip("<>")
         parsed = urlparse(target)
@@ -35,7 +35,7 @@ def main() -> int:
     check(len(skills) == 3, f"Expected 3 skills, found {len(skills)}")
     for path in skills:
         content = path.read_text(encoding="utf-8")
-        match = re.match(r"^---\\s*\\nname:\\s*([a-z0-9-]+)\\s*\\ndescription:\\s*(.+?)\\s*\\n---", content, re.S)
+        match = re.match(r"^---\s*\nname:\s*([a-z0-9-]+)\s*\ndescription:\s*(.+?)\s*\n---", content, re.S)
         check(match is not None, f"Invalid skill frontmatter: {path.relative_to(ROOT)}")
         if match:
             check(match.group(1) == path.parent.name, f"Skill folder/name mismatch: {path.relative_to(ROOT)}")
